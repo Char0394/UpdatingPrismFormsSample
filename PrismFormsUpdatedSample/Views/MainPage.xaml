@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ioc="http://prismlibrary.com"
+             xmlns:converters="using:PrismFormsUpdatedSample.Converters"
+             x:Class="PrismFormsUpdatedSample.Views.MainPage"
+             BackgroundColor="Blue">
+     <ContentPage.Resources>
+      <ResourceDictionary>
+            <ioc:ContainerProvider x:TypeArguments="converters:TextToColorConverter" x:Key="textToColorConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Label Text="{Binding Message}"
+               TextColor="{Binding Message,Converter={StaticResource textToColorConverter}}" 
+               VerticalOptions="Center"
+               HorizontalOptions="Center"/>
+    </ContentPage.Content>
+</ContentPage>
